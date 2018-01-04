@@ -1,0 +1,84 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Your Cart</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-card>
+    <ion-grid>
+      <ion-row>
+        <ion-col>Your Cart Description</ion-col>
+      </ion-row>
+      <ion-row [hidden]="!showEmptyCartMessage"> <!--A través del showEmptyCartMessage mostramos un 
+      mensaje al usuario si no hay ningún producto agregado al carrito-->
+        <ion-col>There are not products in your cart!</ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+  <ion-list>
+    <ion-item *ngFor="let item of cartItems; let i=index"><!--Aquí estamos llamando a la variable item 
+    que tenemos declarada en el cart.ts para poder ver todos los productos que están dentro de ella 
+    y poder mostrarlos-->
+
+      <ion-thumbnail item-left><!--Le estamos asigando al thumbnail que estpe alineado a la izquierda-->
+        <img [src]="item.product.featured_src" style="width: 60px !important; height:60px !important;" />
+        <!--Aquí le estamos asignando un tamaño a las imágenes de los productos con el style-->
+      </ion-thumbnail>
+      <h2>{{item.product.title}}</h2>
+      <p>{{item.qty}} * {{item.product.price}}</p>
+      <!--Este botón nos sirve para poder rmover los productos que no queremos dentro nuestro Cart-->
+      <button ion-button clear item-right color="danger" (click)="removeFromCart(item,i)">
+        <ion-icon name="close-circle"></ion-icon><!--Aquí estamos asignando un ícono al botón que 
+        declarado más arriba-->
+      </button>
+    </ion-item>
+  </ion-list>
+
+  <ion-grid>
+    <ion-card>
+      <ion-grid>
+        <ion-row>
+
+          <ion-col col-2>
+
+          </ion-col>
+
+          <ion-col col-4>
+            <b>TOTAL</b>
+          </ion-col>
+
+          <ion-col col-3>
+
+          </ion-col>
+
+          <ion-col col-3 style="text-align:right;">
+            <b>{{ total }}</b>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+  </ion-grid>
+
+</ion-content>
+
+<!--Este ion-footer es para poder ubicar elmentos hasta los más abajo de la pantalla-->
+<ion-footer>
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <button ion-button color="danger" outline block (click)="closeModal()">Back</button>
+        </ion-col>
+        <ion-col >
+           <button ion-button color="danger" block (click)="checkout()">Checkout</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>
