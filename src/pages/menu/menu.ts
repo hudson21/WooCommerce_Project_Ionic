@@ -41,9 +41,14 @@ export class MenuPage {
 
       let temp: any[] = JSON.parse(data.body).product_categories;
 
+      /*Hacemos un for dentro de la variable temp que tiene alojado el contenido del data.body*/ 
       for (let i = 0; i < temp.length; i++) {
+        /*Si dentro del for encontramos una variable temp[i].id que sea igual a 16, 21, 22, 23
+        Hacemos un push para que se muestren dichos items con esos id en la página de menu*/
         if ( temp[i].id == 16 || temp[i].id == 21 || temp[i].id == 22 || temp[i].id == 23 ) {
-
+         
+          /*Si dentro de estos items encontramos algunos que tengan en su propiedad de slug 
+          los siguientes nombres, se les asigna un respectivo ícono*/
           if(temp[i].slug =="clothing"){
             temp[i].icon ="shirt";
           }

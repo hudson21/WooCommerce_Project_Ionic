@@ -1,20 +1,27 @@
-<ion-menu [content]="content">
+<ion-menu [content]="content"><!--Estamos llamando al contenido -->
     <ion-header>
-        <ion-toolbar>
+        <ion-toolbar><!---->
             <ion-title>Menu</ion-title>
         </ion-toolbar>
     </ion-header>
 
-    <ion-content class="card-background-page">
+    <ion-content class="card-background-page"> <!--LLamamos a las propiedades que tenemos en la clase
+    de card-background-page-->
 
         <ion-card>
-          <img src="./assets/images/clothes.png" />
-          <div class="card-title">WOOIONIC</div>
-          <div class="card-subtitle">Keep Shopping</div>
+          <img src="./assets/images/clothes.png" /><!--Llamamos a la imagen clothes que tenemos en la
+        carpeta de images-->
+          <div class="card-title">WOOIONIC</div><!--Le asignamos un títutlo-->
+          <div class="card-subtitle">Keep Shopping</div><!--Y le asignamos un subtítulo también-->
         </ion-card>
 
         <ion-list>
-            <ion-item *ngFor="let category of categories" text-wrap (click)="openCategoryPage(category)" menuClose>
+            <!--A través del ngFor desplazamos las categorías de de los items.
+                Las categorías están dentro de la variable categories-->
+            <ion-item *ngFor="let category of categories"
+             text-wrap (click)="openCategoryPage(category)" menuClose>
+             
+                 <!--Desplazamos el ícono a la izquierda de la pantalla-->
                 <ion-icon [name]="category.icon" item-left large></ion-icon>
                 <h2>{{category.name}}</h2>
                 <p>{{category.description}}</p>

@@ -8,9 +8,12 @@
 
 
 <ion-content>
-
-  <ion-fab right top edge (click)="openCart()">
-    <button ion-fab color="danger"><ion-icon name="cart"></ion-icon></button>
+  
+  <!--Un ion-fab es un botón flotante que se puede poner en cualquier parte de la pantalla del teléfono-->
+  <ion-fab right top edge (click)="openCart()"><!--Al ion-fab le damos una positión de hacia el 
+  top de la derecha-->
+    <button ion-fab color="danger"><ion-icon name="cart"></ion-icon></button><!--Le asignamos un color
+    danger y un ícono de cart, dentro del botón-->
   </ion-fab>
 
 
@@ -25,6 +28,7 @@
     <ion-card-content>
       <ion-card-title>
         {{product.title}} &nbsp;
+        <!--Llamamos con el ngFor a product.categories para manipular las categorías-->
         <ion-chip *ngFor="let cat of product.categories" style="margin-left:5px;">
           <ion-label color="danger">{{cat}}</ion-label>
         </ion-chip>

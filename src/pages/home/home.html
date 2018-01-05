@@ -1,32 +1,42 @@
 <ion-header>
   <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
+    <button ion-button menuToggle><!--Tenemos un boton dentro de ion-navbar que es la barra de navegación
+    en el Framework de Ionic-->
+      <ion-icon name="menu"></ion-icon><!--El nombre del botón es menu-->
     </button>
     <ion-title>Home</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content no-padding>
-  <ion-card>
-    <ion-slides autoplay="3000" pager>
-      <ion-slide *ngFor="let number of [1,2,3,4]">
-        <img src="./assets/images/{{number}}.jpg" />
+  <ion-card> <!--Tenemos un ion-card que no s va a permitir poner las impagenes hasta lo más arriba 
+    de la pantalla-->
+    <ion-slides autoplay="3000" pager><!--El autoplay es para que se muevan solas las impagenes como 
+    diapositivas, y el pager son las bolitas que están debajo de las imáges, para saber en qué imagen
+    estamos ubicados. Son propiedads que tenemos dentro del componente ion-slides-->
+      <ion-slide *ngFor="let number of [1,2,3,4]"> <!--con el ngFor podemos ver varias impagenes al
+      mismo tiempo, en ves de estarlas llamando una por una-->
+        <img src="./assets/images/{{number}}.jpg" /><!--Aquí estamos estableciendo la ruta de las imágenes-->
       </ion-slide>
 
     </ion-slides>
   </ion-card>
 
   <img style="margin-top:10px;" src="./assets/images/banner1.jpg" />
+  <!--Este es el banner que va en el medio de la pantalla-->
 
+  <!--El ion-grid es para manipular los Layouts de la pantalla-->
   <ion-grid>
     <ion-row>
-      <ion-slides #productSlides>
-        <ion-slide *ngFor="let product of products">
+      <ion-slides #productSlides> <!--LLamamos a una variable que tenemos declarada en el home.ts-->
+        <ion-slide *ngFor="let product of products"> <!--con este ngFor llamamos a los productos que 
+        tenemos dentro de la tienda de WooCommerce. Esta variable se llama desde el home.ts-->
           <ion-card no-padding>
-            <img [src]="product.featured_src" />
-            <h1 padding center> {{ product.title }} </h1>
-            <p center padding [innerHTML]="product.short_description"></p>
+            <img [src]="product.featured_src" /><!--Estas imágenes son llamadas desde la tienda que está
+            alojada en el servidor-->
+            <h1 padding center> {{ product.title }} </h1> <!--LLamamos al título del producto-->
+            <p center padding [innerHTML]="product.short_description"></p> <!--Mostramos una breve 
+              descripcion-->
 
           </ion-card>
         </ion-slide>
@@ -34,21 +44,26 @@
     </ion-row>
   </ion-grid>
 
-  <ion-list>
+  <ion-list> <!--Tenemos un ion-list para generar como un tipo de lista-->
     <ion-item *ngFor="let product of moreProducts" text-wrap (click)="openProductPage(product)">
-      <ion-thumbnail item-left>
-        <img [src]="product.featured_src"/>  
+      <!--LLamamos a la variable moreProducts y tenemos un método llamado openProductPage que es para 
+      irnos a la pantalla de products-by-category -->
+      <ion-thumbnail item-left> <!--Alineamos las imágenes a la izquierda con el item-left-->
+        <img [src]="product.featured_src"/><!--Llamamos a las imágenes del servidor-->  
       </ion-thumbnail>
-
+      <!--De esta manera hacemos que el texto que esté cerca de la imagen quede acoplado a la derecha 
+      de la imagen por la propiedad declarada anteriormente qu es item-left-->
       <h2> {{ product.title }} </h2>
 
       <p>
+        <!--Mostramos la descripción y el precio de los productos que se están mostrando-->
         <span [innerHTML]="product.short_description.substr(0,50) + '...'"> </span>
         <span [innerHTML]="product.price_html"> </span>
       </p>
 
+      <!--Tenemos un un botton que tiene la propiedad de item-right para que se alinee en la derecha-->
       <button ion-button clear item-right>
-        <ion-icon name="md-arrow-forward"></ion-icon>
+        <ion-icon name="md-arrow-forward"></ion-icon><!--Tenemos el ícono de una flecha-->
       </button>
 
     </ion-item>

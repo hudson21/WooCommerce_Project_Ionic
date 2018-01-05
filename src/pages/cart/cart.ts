@@ -57,13 +57,14 @@ export class CartPage {
       this.total = this.total - (price * qty);/*Se quita lo que ya no esté en el Cart*/
     });
 
-    if (this.cartItems.length == 0) {
-      this.showEmptyCartMessage = true;
+    if (this.cartItems.length == 0) { /*si la variable cartItems.length es igual a 0*/
+      this.showEmptyCartMessage = true;/*Entonces se va a mostrar el mensaje de que no hay ningún 
+      item agregado al Cart*/
     }
   }
 
   closeModal(){
-    this.viewCtrl.dismiss();
+    this.viewCtrl.dismiss();/*Aquí estamos cerrando el modal que utilizamos para abir la página del Cart*/
   }
 
 }

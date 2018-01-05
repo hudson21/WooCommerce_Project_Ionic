@@ -3,6 +3,7 @@ import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { MenuPage } from '../pages/menu/menu';
+import { SignupPage } from "../pages/signup/signup"
 
 
 @Component({
@@ -12,7 +13,7 @@ import { MenuPage } from '../pages/menu/menu';
 export class MyApp {
   
   
-  rootPage:any = MenuPage;
+  rootPage:any = SignupPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
