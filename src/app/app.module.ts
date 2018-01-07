@@ -11,7 +11,11 @@ import { MenuPage } from '../pages/menu/menu';
 import { ProductsByCategoryPage } from '../pages/products-by-category/products-by-category';
 import { ProductDetailsPage } from '../pages/product-details/product-details';
 import { CartPage } from "../pages/cart/cart";
-import { SignupPage } from "../pages/signup/signup"
+import { SignupPage } from "../pages/signup/signup";
+import { LoginPage } from "../pages/login/login";
+import { CheckoutPage } from "../pages/checkout/checkout";
+
+import { HttpModule } from "@angular/http";
 
 
 @NgModule({
@@ -22,10 +26,13 @@ import { SignupPage } from "../pages/signup/signup"
     ProductsByCategoryPage,
     ProductDetailsPage,
     CartPage,
-    SignupPage
+    SignupPage,
+    LoginPage,
+    CheckoutPage
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot()
   ],
@@ -37,7 +44,9 @@ import { SignupPage } from "../pages/signup/signup"
     ProductsByCategoryPage,
     ProductDetailsPage,
     CartPage,
-    SignupPage
+    SignupPage,
+    LoginPage,
+    CheckoutPage
   ],
   providers: [
     StatusBar,

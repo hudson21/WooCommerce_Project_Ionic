@@ -11,7 +11,8 @@
   <!--///////////////////////////////Aquí inicia la primera sección///////////////////////////////////-->
   <ion-list>
     <ion-item-divider color="danger">Personal Details</ion-item-divider>
-
+ <!--Tenemos el ngModel, el cual nos va a permitir acceder a un objeto con sus respectivos atributos,
+  que son propiedades que podemos encontrar dentro de este mismo objeto-->
     <ion-item>
       <ion-label>First Name</ion-label>
       <ion-input type="text" [(ngModel)]="newUser.first_name"></ion-input>
@@ -39,7 +40,7 @@
 
     <ion-item>
       <ion-label>Confirm Password</ion-label>
-      <ion-input type="text" [(ngModel)]="newUser.confirm_password"></ion-input>
+      <ion-input type="password" [(ngModel)]="newUser.confirm_password"></ion-input>
     </ion-item>
     <!--///////////////////////////////Aquí inicia la segunda sección///////////////////////////////////-->
     <ion-item-divider color="danger">Billing Details</ion-item-divider>
@@ -87,6 +88,9 @@
       <ion-input type="tel" clearInput [(ngModel)]="newUser.billing_address.phone"></ion-input>
     </ion-item>
 
+    <!--///////////////////////////////Este es un validador de mismos datos/////////////////////////////-->
+
+    <!--Con el ionChange se puede cambiar el estado de un objeto-->
     <ion-item>
       <ion-label>Same Shipping Details</ion-label>
       <ion-checkbox (ionChange)="setBillingToShipping()"></ion-checkbox>
